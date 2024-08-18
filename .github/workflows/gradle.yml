@@ -25,3 +25,14 @@ jobs:
       run: chmod +x gradlew
     - name: Test with Gradle
       run: ./gradlew test
+  release-project:
+    name: Test maybe
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Download artifacts maybe
+      uses: actions/download-artifact@v3
+      with:
+        name: static-site
+      - name: Test artifact download maybe
+        run: ls -R
